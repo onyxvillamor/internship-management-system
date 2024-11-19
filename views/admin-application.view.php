@@ -38,11 +38,12 @@
                     </span>
                 </p>
                 <p><strong>Date Submitted:</strong> <?= htmlspecialchars($student['application_date']); ?></p>
+                <p><strong>Cover Letter:</strong> <?= htmlspecialchars($student['cover_letter']); ?></p>
             </div>
 
             <div class="space-y-2">
                 <h3 class="font-medium text-lg">Resume</h3>
-                <a href="/views/resumes/" download="" class="text-blue-500 hover:underline">
+                <a href="/views/applicant-resume/<?= $student['resume'] ?>" download class="text-blue-500 hover:underline">
                     Download Resume
                 </a>
             </div>
@@ -53,10 +54,10 @@
             <?php if ($student['status'] == 'Accepted' || $student['status'] == 'Rejected'): ?>
            
             <?php else: ?>
-                <a href="/admin/applications/action?id=<?= htmlspecialchars($student['user_id']); ?>&status=Accepted" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">
+                <a href="/admin/applications/action?id=<?= htmlspecialchars($student['id']); ?>&status=Accepted" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">
                     Approve
                 </a>
-                <a href="/admin/applications/action?id=<?= htmlspecialchars($student['user_id']); ?>&status=Rejected" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
+                <a href="/admin/applications/action?id=<?= htmlspecialchars($student['id']); ?>&status=Rejected" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
                     Reject
                 </a>
             <?php endif; ?>

@@ -55,6 +55,10 @@
                             <select id="country" name="course" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
                                 <option disabled selected>Select Course</option>
                                 <option value="1">BET major in Computer Engineering Technology</option>
+                                <option value="4">BET major in Chemical Engineering Technology</option>
+                                <option value="5">BET major in Electrical Engineering Technology</option>
+                                <option value="6">BET major in Manufacturing Engineering Technology</option>
+                                <option value="7">BET major in Electronics Engineering Technology</option>
                                 <option value="2">BS Mechanical Engineering</option>
                                 <option value="3">BS Electrical Engineering</option>
                             </select>
@@ -65,6 +69,23 @@
                         <label for="street-address" class="block text-sm/6 font-medium text-gray-900">Location</label>
                         <div class="mt-2">
                             <input type="text" name="location" id="street-address" autocomplete="off" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                        </div>
+                    </div>
+                    <div class="col-span-full">
+                        <label for="cover-photo" class="block text-sm/6 font-medium text-gray-900">Company Logo</label>
+                        <div class="mt-2 flex justify-center  w-max">
+                            <div class="text-center">
+
+                                <div class="flex flex-col space-y-2">
+                                    <label for="file-upload" class="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md w-fit">
+                                        Choose File
+                                    </label>
+                                    <input id="file-upload" name="image" type="file" class="hidden">
+                                    <span id="file-name" class="text-gray-700">No file selected</span>
+                                </div>
+
+                                <p class="text-xs/5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                            </div>
                         </div>
                     </div>
 
@@ -79,5 +100,14 @@
 
 
 </main>
+<script>
+    const fileInput = document.getElementById('file-upload');
+    const fileNameDisplay = document.getElementById('file-name');
+
+    fileInput.addEventListener('change', () => {
+        const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : "No file selected";
+        fileNameDisplay.textContent = fileName;
+    });
+</script>
 
 <?php require('partials/footer.php') ?>

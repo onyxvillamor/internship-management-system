@@ -1,6 +1,6 @@
     <!-- sidenav -->
     <div class="bg-gray-100 w-[100px] md:w-[255px] px-2 md:px-6 py-4">
-        <div class="flex flex-col justify-between h-full">
+        <div class="flex flex-col justify-between h-full z-50">
             <?php
             $currentUri = $_SERVER['REQUEST_URI'];
             if (urlIs('/admin') || strpos($currentUri, '/admin/') === 0): ?>
@@ -31,9 +31,9 @@
                             <span class="hidden md:inline">Applications</span>
                         </a>
 
-                        <a href="/admin/settings" class="flex items-center <?= urlIs('/admin/settings') ? "text-gray-700" : "text-gray-400"; ?> hover:text-gray-700 rounded-sm px-3 py-2 text-sm font-medium">
+                        <a href="/admin/manage" class="flex items-center <?= urlIs('/admin/manage') ? "text-gray-700" : "text-gray-400"; ?> hover:text-gray-700 rounded-sm px-3 py-2 text-sm font-medium">
                             <i class="fas fa-cog mr-3 text-2xl md:text-lg"></i>
-                            <span class="hidden md:inline">Settings</span>
+                            <span class="hidden md:inline">Manage admin</span>
                         </a>
                     </div>
                     <div class="border-b-2 border-gray-300 mx-4 my-4"></div>
@@ -59,7 +59,7 @@
                             <span class="hidden md:inline">Student Profile</span>
                         </a>
 
-                        <a href="/student/internship" class="flex items-center <?= urlIs('/student/internship') ? "text-gray-700" : "text-gray-400"; ?> hover:text-gray-700 rounded-sm px-3 py-2 text-sm font-medium">
+                        <a href="/student/internships" class="flex items-center <?= urlIs('/student/internships') ? "text-gray-700" : "text-gray-400"; ?> hover:text-gray-700 rounded-sm px-3 py-2 text-sm font-medium">
                             <i class="fas fa-briefcase mr-3 text-2xl md:text-lg"></i>
                             <span class="hidden md:inline">Available Internships</span>
                         </a>
@@ -69,10 +69,6 @@
                             <span class="hidden md:inline">My Applications</span>
                         </a>
 
-                        <a href="/student/notifications" class="flex items-center <?= urlIs('/student/notifications') ? "text-gray-700" : "text-gray-400"; ?> hover:text-gray-700 rounded-sm px-3 py-2 text-sm font-medium">
-                            <i class="fas fa-envelope mr-3 text-2xl md:text-lg"></i>
-                            <span class="hidden md:inline">Notifications</span>
-                        </a>
                     </div>
                     <div class="border-b-2 border-gray-300 mx-4 my-4"></div>
                    

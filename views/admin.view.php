@@ -5,6 +5,10 @@
 <main class="overflow-y-auto h-[88svh]">
     <div class="container mx-auto p-6">
 
+    <h1 class="text-3xl font-semibold">Welcome, <?= $adminId ?>!</h1>
+    <p class="mb-8 text-lg font-light">Monitor internship postings, review student applications, and maintain company collaborations efficiently.</p>
+
+
         <!-- Admin Dashboard Overview -->
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
             <div class="bg-white p-4 rounded-lg shadow-md">

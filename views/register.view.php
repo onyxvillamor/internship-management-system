@@ -63,8 +63,13 @@
                         <select id="country" name="course_id" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
                             <option disabled selected>Select Course</option>
                             <option value="1">BET major in Computer Engineering Technology</option>
+                            <option value="4">BET major in Chemical Engineering Technology</option>
+                            <option value="5">BET major in Electrical Engineering Technology</option>
+                            <option value="6">BET major in Manufacturing Engineering Technology</option>
+                            <option value="7">BET major in Electronics Engineering Technology</option>
                             <option value="2">BS Mechanical Engineering</option>
                             <option value="3">BS Electrical Engineering</option>
+                            
                         </select>
                     </div>
                 </div>

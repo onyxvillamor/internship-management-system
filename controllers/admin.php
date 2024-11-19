@@ -1,8 +1,17 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION['admin_id'])) {
+    header('Location: /admin/login');
+    exit;
+}
+
 $heading = "Admin Dashboard";
 $config = require('config.php');
 $db = new Database($config['database']);
+
+$adminId = $_SESSION['admin_id'];
 
 $query = "SELECT 'users' AS table_name, COUNT(*) AS row_count FROM users
           UNION

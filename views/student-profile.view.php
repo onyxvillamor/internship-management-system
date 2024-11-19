@@ -41,7 +41,7 @@
                     <?php if (isset($profile['company_name'])): ?>
                         <p><strong>Accepted Applications:</strong></p>
                         <ul class="list-disc pl-5">
-                            <li><?= htmlspecialchars($profile['company_name']) ?> (<span class="<?= ($profile['status'] === 'Pending') ? 'text-yellow-500' : (($profile['status'] === 'Accepted') ? 'text-green-500' : ''); ?>"><?= htmlspecialchars($profile['status']) ?></span>)</li>
+                            <li><?= htmlspecialchars($profile['company_name']) . ' - ' . htmlspecialchars($profile['title']) ?> (<span class="<?= ($profile['status'] === 'Pending') ? 'text-yellow-500' : (($profile['status'] === 'Accepted') ? 'text-green-500' : (($profile['status'] === 'Rejected') ? 'text-red-500' : '')); ?>"><?= htmlspecialchars($profile['status']) ?></span>)</li>
                         </ul>
                     <?php else: ?>
                         <p><strong>No applications submitted.</strong></p>

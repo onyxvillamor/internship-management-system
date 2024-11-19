@@ -8,7 +8,7 @@
     </div>
     
     <div class="max-w-md w-full bg-white p-8 shadow-lg rounded-lg">
-        <h2 class="text-2xl font-bold text-center text-gray-700 mb-6">Login to Your Account</h2>
+        <h2 class="text-2xl font-bold text-center text-gray-700 mb-6">Student Login</h2>
         
         <form action="/login/authenticate" method="POST">
             <div class="mb-4">

@@ -3,47 +3,46 @@
 <?php require('partials/banner.php') ?>
 
 <main>
-<div class="p-6 space-y-4">
-   
-    <div class="bg-white p-4 ">
-        <h2 class="text-2xl font-semibold">Welcome back, <?= $profile['first_name'] ?>!</h2>
-        <p class="text-gray-600 text-lg">Here's an overview of your internship journey so far.</p>
-    </div>
-
-    <div class="flex space-x-4">
-        <div class="flex-1 shadow-md <?= ($profile['status'] === 'Pending')? 'bg-yellow-100' : (($profile['status'] === 'Accepted')? 'bg-green-100' : (($profile['status'] === 'Rejected')? 'bg-red-100': '')) ?> p-4 rounded-lg">
-            <h3 class="text-lg font-medium">Application Status</h3>
-            <p class="<?= ($profile['status'] === 'Pending')? 'text-yellow-500' : (($profile['status'] === 'Accepted')? 'text-green-700' : (($profile['status'] === 'Rejected')? 'text-red-700': '')) ?> font-semibold"><?= $profile['status'] ?></p>
-            <a href="/applications" class="text-black hover:underline">View Details</a>
+    <div class="p-6 space-y-6 max-w-5xl mx-auto">
+       
+        <div class="bg-white p-4">
+            <h2 class="text-3xl font-semibold">Welcome back, <?= $profile['first_name'] ?>!</h2>
+            <p class="text-gray-600 text-lg">Here's an overview of your internship application status.</p>
         </div>
-        
-      
-        <div class="flex-1 shadow-md p-4 rounded-lg">
-            <h3 class="text-lg font-medium">Notifications</h3>
-            <ul class="text-gray-700 list-disc list-inside">
-                <li>New internship opportunity available!</li>
-                <li>Submit your SIT report by Nov 20th.</li>
-            </ul>
-            <a href="/student/notifications" class="text-blue-500 hover:underline">View All</a>
+
+        <!-- Internship Application Status Card -->
+        <div class="flex space-x-4">
+            <div class="flex-1 shadow-lg <?= ($profile['status'] === 'Pending') ? 'bg-yellow-100' : (($profile['status'] === 'Accepted') ? 'bg-green-100' : (($profile['status'] === 'Rejected') ? 'bg-red-100' : '')) ?> p-6 rounded-lg">
+                <h3 class="text-lg font-medium">Application Status</h3>
+                <?php if (empty($profile['status'])): ?>
+                    <p class="text-gray-600 font-thin text-lg">You have not yet applied for any internships.</p>
+                    <a href="/student/internships" class="text-blue-500 hover:underline">Apply Now</a>
+                <?php else: ?>
+                    <p class="text-lg"><span class="font-semibold"><?= $profile['title'] ?></span> - <?= $profile['company_name'] ?></p>
+                    <p class="<?= ($profile['status'] === 'Pending') ? 'text-yellow-500' : (($profile['status'] === 'Accepted') ? 'text-green-700' : (($profile['status'] === 'Rejected') ? 'text-red-700' : '')) ?>  text-xl">
+                        <?= $profile['status'] ?>
+                    </p>
+                    <a href="/student/applications" class="text-blue-500 hover:underline mt-2 inline-block">View Application Details</a>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <!-- Quick Actions Section -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-lg font-semibold mb-4">Quick Actions</h3>
+            <div class="flex space-x-4">
+                <a href="/student/applications" class="flex-1 text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">
+                    <i class="fa-solid fa-file-alt mr-2"></i> View Applications
+                </a>
+                <a href="/student/internships" class="flex-1 text-center bg-green-600 text-white py-3 rounded-lg hover:bg-green-700">
+                    <i class="fa-solid fa-briefcase mr-2"></i> Available Internships
+                </a>
+                <a href="/student/profile" class="flex-1 text-center bg-gray-600 text-white py-3 rounded-lg hover:bg-gray-700">
+                    <i class="fa-solid fa-user mr-2"></i> View Profile
+                </a>
+            </div>
         </div>
     </div>
-
-    <div class="bg-white p-4 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium">New Internship Opportunities</h3>
-        <ul class="space-y-2">
-            <li class="flex justify-between">
-                <span>Web Developer at PocketDevs</span>
-                <a href="/student/internship" class="text-blue-500 hover:underline">Apply Now</a>
-            </li>
-            <li class="flex justify-between">
-                <span>Data Analyst at Pixel8</span>
-                <a href="/student/internship" class="text-blue-500 hover:underline">Apply Now</a>
-            </li>
-        </ul>
-        <a href="/student/internship" class="text-blue-600 hover:underline">View All Internships</a>
-    </div>
-</div>
-
 </main>
 
 <?php require('partials/footer.php') ?>

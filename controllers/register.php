@@ -40,8 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $fileName = $_FILES['image']['name'] ?? null;
         $tempName = $_FILES['image']['tmp_name'] ?? null;
-        $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
-        $newFileName = $studId . '.' . $fileExtension;
         $folder = 'views/img/' . $fileName;
 
 
@@ -69,6 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
             
                 move_uploaded_file($tempName, $folder);
+                header("Location: /");
+                exit;
             } catch (Exception $e) {
 
                 error_log($e->getMessage(), 3, __DIR__ . '/errors/error.log');
